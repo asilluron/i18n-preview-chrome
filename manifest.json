@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "i18n Preview",
+  "description": "Allows preview of i18n annotations",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [ {
+    "js": [ "lib/lodash.js", "lib/replace.js", "js/content.js" ],
+    "matches": [ "http://*.localhost/src/*" ],
+    "run_at": "document_idle"
+  } ],
+  "permissions": [
+    "http://localhost/*"
+  ],
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "options_page": "options.html"
+}
