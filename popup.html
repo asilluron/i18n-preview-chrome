@@ -2,9 +2,21 @@
 <html>
   <head>
     <title>i18n Directions</title>
-    <script src="popup.js"></script>
+    <link href="css/extension.css" rel="stylesheet" />
   </head>
   <body>
-    <h4>Visit the options page under chrome://extensions to change the i18n language definition settings</h4>
+    <h5>Please choose the language you want to view below:</h5>
+    <form id="formLanguage">
+        <select id="languages">
+            <option value="default" selected>Default</option>
+            <!-- We will dynamically build the rest of the language list in popup.js -->
+        </select>
+        <button type="submit">Change Language</button>
+    </form>
+
+    <!-- Will need to include ajax call to pull in languages...currently this is a hardcoded language array
+        Created a basic Ajax method to pass in Method type and file to query for, as well as success and error callbacks
+    -->
+    <script src="popup.js"></script>
   </body>
 </html>
