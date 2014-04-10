@@ -40,8 +40,8 @@
     displayLanguages(langs);
 
     //set default language to current language
-    if(localStorage["locale_url"]){
-        selectLocallyStoredLanguage(localStorage["locale_url"]);
+    if(localStorage.locale_url){
+        selectLocallyStoredLanguage(localStorage.locale_url);
     }
 
 
@@ -51,12 +51,26 @@
         var selectedLanguage = document.getElementById('languages').value;
 
         //set browsers local storage to language
-        localStorage["locale_url"] = 'http://localhost:8000/src/i18n/lang/' + selectedLanguage + '.json';
+        localStorage.locale_url = selectedLanguage;
 
         //refresh page after changing language
         chrome.tabs.getSelected(null, function(tab) {
             window.close();
             chrome.tabs.reload(tab.id);
         });
-    }
+    };
+
+    document.getElementById('fileOptions').onsubmit = function(ev){
+        ev.preventDefault();
+        var fileBaseURL = document.getElementById('fileBase').value;
+
+        //set browsers local storage to language
+        localStorage.file_base_url = fileBaseURL;
+
+        //refresh page after changing language
+        chrome.tabs.getSelected(null, function(tab) {
+            window.close();
+            chrome.tabs.reload(tab.id);
+        });
+    };
 })();

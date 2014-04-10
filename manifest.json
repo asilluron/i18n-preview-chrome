@@ -2,7 +2,7 @@
   "manifest_version": 3,
 
   "name": "i18n Preview",
-  "description": "Allows preview of i18n annotations",
+  "description": "Allows previewing of i18n annotations on local test machines",
   "version": "1.1",
 
   "browser_action": {
@@ -15,7 +15,8 @@
     "run_at": "document_idle"
   } ],
   "permissions": [
-    "http://localhost/*"
+    "http://localhost/*",
+    "history"
   ],
   "background": {
     "scripts": ["js/background.js"]

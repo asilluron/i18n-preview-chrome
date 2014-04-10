@@ -1,13 +1,21 @@
-chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+var i18nPort;
 
-    //build out requests
-    switch(request.method){
-        case "getLocaleFile":
-            sendResponse({data: localStorage["locale_url"]});
-            break;
+chrome.runtime.onConnect.addListener(function (port) {
+	if (port.name === "i18nrender") {
+		i18nPort = port;
+		port.onMessage.addListener(function (msg) {
+			if (msg.method == "getLocaleFile")
+				port.postMessage({
+					locale: localStorage.locale_url,
+					filebase: localStorage.file_base_url
+				});
+		});
 
-        default:
-            sendResponse({}); // snub them.
-            break;
-    }
+	}
+
+});
+
+
+chrome.history.onVisited.addListener(function (history) {
+	i18nPort.postMessage("rerender");
 });

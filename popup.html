@@ -13,6 +13,11 @@
         </select>
         <button type="submit">Change Language</button>
     </form>
+    <h5>Language File Options</h5>
+    <form id="fileOptions" name="fileOptions">
+        <label for="fileBase">Base URL</label><input type="text" id="fileBase" name="fileBase" placeholder="http://localhost/i18n/lang/">
+        <button type="submit">Save</button>
+    </form>
 
     <!-- Will need to include ajax call to pull in languages...currently this is a hardcoded language array
         Created a basic Ajax method to pass in Method type and file to query for, as well as success and error callbacks
