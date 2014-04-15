@@ -9,17 +9,17 @@
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
-  "content_scripts": [ {
-    "js": [ "lib/lodash.js", "lib/replace.js","js/ajax.js", "js/content.js" ],
-    "matches": [ "http://*.localhost/src/*" ],
+  "content_scripts": [{
+    "js": ["lib/lodash.js", "lib/replace.js", "js/ajax.js", "js/content.js"],
+    "matches": ["http://*.localhost/src/*"],
     "run_at": "document_idle"
-  } ],
+  }],
   "permissions": [
     "http://localhost/*",
     "history"
   ],
   "background": {
-    "scripts": ["js/background.js"]
+    "scripts": ["js/defaults.js", "js/background.js"]
   },
   "options_page": "options.html"
 }
