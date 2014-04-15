@@ -10,7 +10,9 @@ port.postMessage({
 port.onMessage.addListener(function (response) {
     if(response.locale){
         lastUsedLocaleFile = response.filebase + response.locale + ".json";
-        render(lastUsedLocaleFile);
+        setTimeout(function() {
+            render(lastUsedLocaleFile);
+        }, 100);
     }
     else if(response === "rerender"){
         //Proceed with re-rendering
