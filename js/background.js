@@ -5,10 +5,12 @@ chrome.runtime.onConnect.addListener(function (port) {
 		i18nPort = port;
 		port.onMessage.addListener(function (msg) {
 			if (msg.method == "getLocaleFile")
-				port.postMessage({
-					locale: localStorage.locale_url,
-					filebase: localStorage.file_base_url
-				});
+				setTimeout(function () {
+					port.postMessage({
+						locale: localStorage.locale_url,
+						filebase: localStorage.file_base_url
+					});
+				}, 200);
 		});
 
 	}
