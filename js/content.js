@@ -12,7 +12,7 @@ port.onMessage.addListener(function (response) {
         lastUsedLocaleFile = response.filebase + response.locale + ".json";
         setTimeout(function() {
             render(lastUsedLocaleFile);
-        }, 100);
+        }, 200);
     }
     else if(response === "rerender"){
         //Proceed with re-rendering
