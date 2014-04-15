@@ -15,7 +15,6 @@ chrome.runtime.onConnect.addListener(function (port) {
 
 });
 
-
 chrome.history.onVisited.addListener(function (history) {
 	i18nPort.postMessage("rerender");
 });

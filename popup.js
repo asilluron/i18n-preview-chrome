@@ -7,12 +7,12 @@
         ];
 
     //parse file path and select language type
-    function selectLocallyStoredLanguage(filePath){
-        var preLang = filePath.lastIndexOf('/') + 1,
-            langLength = (filePath.length - preLang) - 5,
-            langCode = filePath.substr(preLang, langLength);
-
+    function selectLocallyStoredLanguage(langCode){
         document.getElementById('languages').value = langCode;
+    }
+
+    function selectLocallyStoredFilebase(filebase){
+        document.getElementById('fileBase').value = filebase;
     }
 
     //method to build out select box of languages to choose from
@@ -42,6 +42,10 @@
     //set default language to current language
     if(localStorage.locale_url){
         selectLocallyStoredLanguage(localStorage.locale_url);
+    }
+
+    if(localStorage.file_base_url){
+        selectLocallyStoredFilebase(localStorage.file_base_url);
     }
 
 
